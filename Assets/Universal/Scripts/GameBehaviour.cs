@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class GameBehaviour : BV.Behaviour
 {
+    protected static GameManager _GAME { get { return GameManager.Instance; } }
     protected static UIManager _UI { get { return UIManager.Instance; } }
+    protected static Timer _TIMER { get { return Timer.Instance; } }
 }
 
 

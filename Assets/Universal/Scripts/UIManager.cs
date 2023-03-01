@@ -7,6 +7,7 @@ using DG.Tweening;
 public class UIManager : GameBehaviour<UIManager>
 {
     public TMP_Text scoreText;
+    public TMP_Text timerText;
     int score = 0;
     int scoreBonus = 50;
     public Ease scoreEase;
@@ -15,7 +16,10 @@ public class UIManager : GameBehaviour<UIManager>
     {
         scoreText.text = score.ToString();
     }
-
+    private void Update()
+    {
+        timerText.text = _TIMER.Gettime().ToString("F3");
+    }
     public void TweenScore()
     {
         DOTween.To(() => score, x => score = x, score + scoreBonus, 1).SetEase(scoreEase).OnUpdate(() =>
