@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum TimerDirection { CountUp, CoutDown }
+public enum TimerDirection { CountUp, CountDown }
 public class Timer : GameBehaviour<Timer>
 {
   
