@@ -5,9 +5,26 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     //References to the player
+    public CharacterController controller;
     private GameObject focalPoint;
-    private Rigidbody playerRb;
+    //private Rigidbody playerRb;
     public float speed = 5.0f;
+    public Transform cam;
+    public float gravity = -9.81f;
+    Vector3 velocity;
+
+    // Ground check
+    public Transform groundCheck;
+    public float groundDistance = 0.4f;
+    public LayerMask groundMask;
+
+    bool isGrounded;
+
+
+
+    public float turnSmoothTime = 0.1f;
+    float turnSmoothVelocity;
+
 
     //reference to pickup
     public bool hasPowerUp = false;
@@ -16,14 +33,37 @@ public class PlayerController : MonoBehaviour
     
     void Start()
     {
-        playerRb = GetComponent<Rigidbody>();
+        
+        //playerRb = GetComponent<Rigidbody>();
         focalPoint = GameObject.Find("FocalPoint");
     }
 
     void Update()
     {
-        float forwardInput = Input.GetAxis("Vertical");
-        playerRb.AddForce(focalPoint.transform.forward * speed * forwardInput);
+        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+        if (isGrounded && velocity.y < 0) 
+        {
+            velocity.y = -2f;
+        
+        }
+
+        float horizontal = Input.GetAxisRaw("Horizontal");
+        float vertical = Input.GetAxisRaw("Vertical");
+        Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
+
+        velocity.y += gravity * Time.deltaTime;
+        controller.Move(velocity * Time.deltaTime);
+
+        if(direction.magnitude >= 0.1f)
+        {
+            float targetAngle= Mathf.Atan2(direction.x, direction.z)*Mathf.Rad2Deg + cam.eulerAngles.y;
+            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
+            transform.rotation = Quaternion.Euler(0f, angle, 0f);
+
+            Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
+            controller.Move(moveDir.normalized* speed * Time.deltaTime);
+        }
+        //playerRb.AddForce(focalPoint.transform.forward * speed * forwardInput);
         powerupIndicator.transform.position = transform.position + new Vector3(0, -0.5f, 0);
     }
     private void OnTriggerEnter(Collider other)
@@ -35,6 +75,8 @@ public class PlayerController : MonoBehaviour
             Destroy(other.gameObject);
             StartCoroutine(PowerupCountdownRoutine());
         }
+
+        
     }
     IEnumerator PowerupCountdownRoutine()
     {
