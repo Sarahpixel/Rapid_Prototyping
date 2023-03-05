@@ -14,9 +14,11 @@ public class UIManager : GameBehaviour<UIManager>
    
     void Start()
     {
+       
         wrenchText = GetComponent<TextMeshProUGUI>();
         //scoreText.text = score.ToString();
     }
+   
     public void UpdateWrenchText(PlayerInventory playerInventory)
     {
         wrenchText.text = playerInventory.NumberOfWrenches.ToString();
