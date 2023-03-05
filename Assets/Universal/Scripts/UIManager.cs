@@ -1,30 +1,42 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using TMPro;
 using DG.Tweening;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class UIManager : GameBehaviour<UIManager>
 {
-    public TMP_Text scoreText;
-    public TMP_Text timerText;
-    int score = 0;
-    int scoreBonus = 50;
-    public Ease scoreEase;
-    // Start is called before the first frame update
+   
+    private TextMeshProUGUI wrenchText;
+
+   
     void Start()
     {
-        scoreText.text = score.ToString();
+        wrenchText = GetComponent<TextMeshProUGUI>();
+        //scoreText.text = score.ToString();
     }
-    private void Update()
+    public void UpdateWrenchText(PlayerInventory playerInventory)
     {
-        timerText.text = _TIMER.Gettime().ToString("F3");
+        wrenchText.text = playerInventory.NumberOfWrenches.ToString();
     }
-    public void TweenScore()
-    {
-        DOTween.To(() => score, x => score = x, score + scoreBonus, 1).SetEase(scoreEase).OnUpdate(() =>
-        {
-            scoreText.text = "Score: " + score.ToString();
-        }); 
-    }
+    //public TMP_Text scoreText;
+    ////public TMP_Text timerText;
+    //int score = 0;
+    //int scoreBonus = 50;
+    //public Ease scoreEase;
+    //// Start is called before the first frame update
+
+    ////private void Update()
+    ////{
+    ////    timerText.text = _TIMER.Gettime().ToString("F3");
+    ////}
+    //public void TweenScore()
+    //{
+    //    DOTween.To(() => score, x => score = x, score + scoreBonus, 1).SetEase(scoreEase).OnUpdate(() =>
+    //    {
+    //        scoreText.text = "Score: " + score.ToString();
+    //    }); 
+    //}
 }
