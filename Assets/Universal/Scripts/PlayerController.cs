@@ -33,7 +33,9 @@ public class PlayerController : MonoBehaviour
     
     void Start()
     {
-        
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         //playerRb = GetComponent<Rigidbody>();
         focalPoint = GameObject.Find("FocalPoint");
     }
