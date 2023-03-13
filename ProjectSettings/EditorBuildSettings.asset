@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Prototype 1.unity
     guid: a4b96ad7a65484fd4a83cb97540eee50
+  - enabled: 1
+    path: Assets/Prototype2/Scenes/TreeTitle.unity
+    guid: f222449f9aa79e446a5bc6a886aad436
+  - enabled: 1
+    path: Assets/Prototype2/Scenes/CatchGame.unity
+    guid: a64ca3a9226005d49ac7c483c05a8f46
   m_configObjects: {}

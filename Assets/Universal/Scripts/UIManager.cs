@@ -39,6 +39,6 @@ public class UIManager : GameBehaviour<UIManager>
     //    DOTween.To(() => score, x => score = x, score + scoreBonus, 1).SetEase(scoreEase).OnUpdate(() =>
     //    {
     //        scoreText.text = "Score: " + score.ToString();
-    //    }); 
+    //    });
     //}
 }
