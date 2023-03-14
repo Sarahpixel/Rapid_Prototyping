@@ -36,6 +36,7 @@ public class Pause : MonoBehaviour
         Time.timeScale = 1f;
         GameIsPaused = false;
         Cursor.lockState = CursorLockMode.Locked;
+        
     }
 
     void Paused()
@@ -46,6 +47,7 @@ public class Pause : MonoBehaviour
         Time.timeScale = 0f;
         GameIsPaused = true;
         Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
     public void LoadTitle()
     {

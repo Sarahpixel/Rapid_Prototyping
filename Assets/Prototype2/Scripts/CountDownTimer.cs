@@ -7,7 +7,7 @@ using TMPro;
 public class CountDownTimer : MonoBehaviour
 {
     float currentTime = 0f;
-    float startingTime = 10f;
+    float startingTime = 35f;
     public TextMeshProUGUI timerText;
     public GameObject inGamePanel;
     public GameObject pausePanel;
@@ -35,6 +35,8 @@ public class CountDownTimer : MonoBehaviour
         }
         if(currentTime==0)
         {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
             pausePanel.SetActive(false);
             gameOverPanel.SetActive(true);
             Time.timeScale = 0f;
@@ -42,11 +44,11 @@ public class CountDownTimer : MonoBehaviour
             ////call the update high score
             //spawnPoint.UpdateHighScore();
         }
-        if (currentTime <3.5f)
+        if (currentTime <5.5f)
         {
             timerText.color = Color.red;
         }
-        if (currentTime >= 3.5f)
+        if (currentTime >= 5.5f)
         {
             timerText.color = Color.black;
         }

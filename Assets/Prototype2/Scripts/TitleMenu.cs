@@ -5,9 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class TitleMenu : MonoBehaviour
 {
+    private void Start()
+    {
+        Cursor.visible = true;
+    }
     public void LoadGame()
     {
-        Time.timeScale = 1f;
+        
+        Time.timeScale = 1.5f;
         SceneManager.LoadScene("CatchGame");
     }
     public void QuitGame()
