@@ -11,16 +11,23 @@ public class Player : MonoBehaviour
     Rigidbody rb;
 
     public TextMeshProUGUI scoreText;
+    
     //public Score _score;
     public int score = 0;
+
+   
     private void Start()
     {
+
+       
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation= true;
 
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible= false;
+
+        
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -31,6 +38,9 @@ public class Player : MonoBehaviour
         }
 
     }
+   
+       
+
     private void Update()
     {
        

@@ -5,6 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class GameOverManager : MonoBehaviour
 {
+    private void Awake()
+    {
+        Time.timeScale = 1f;
+    }
     public void LoadTitle()
     {
         Time.timeScale = 1f;
@@ -12,7 +16,7 @@ public class GameOverManager : MonoBehaviour
     }
     public void Restart()
     {
-        Time.timeScale = 2f;
+        Time.timeScale = 1f;
         SceneManager.LoadScene("CatchGame");
     }
     public void QuitGame()
