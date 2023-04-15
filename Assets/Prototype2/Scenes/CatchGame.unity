@@ -1224,7 +1224,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &667327682
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3887,7 +3887,6 @@ MonoBehaviour:
   _timer: 0
   enemiesToSpawn:
   - {fileID: 117307305296065676, guid: eb83fcc83cc691f42bb6f2521054045e, type: 3}
-  - {fileID: 135134, guid: 18d064e59e399ac4ebf74eada94947af, type: 3}
   spawnPoint:
   - {fileID: 1000773662}
   - {fileID: 1306672271}
