@@ -5,12 +5,12 @@ using UnityEngine;
 public class RotateCamera : MonoBehaviour
 {
     public GameObject player;
-    [SerializeField]
-    private float xAxis, yAxis, zAxis;
+   
     // Start is called before the first frame update
     void Start()
     {
-        
+        Cursor.lockState= CursorLockMode.Locked;
+        Cursor.visible= false;
     }
     public float rotationSpeed;
     void Update()
@@ -19,6 +19,6 @@ public class RotateCamera : MonoBehaviour
 
         transform.Rotate(Vector3.up, horizontalInput * rotationSpeed * Time.deltaTime);
 
-        transform.position = new Vector3(player.transform.position.x + xAxis, player.transform.position.y + yAxis, player.transform.position.z + zAxis);
+        //transform.position = new Vector3(player.transform.position.x + xAxis, player.transform.position.y + yAxis, player.transform.position.z + zAxis);
     }
 }

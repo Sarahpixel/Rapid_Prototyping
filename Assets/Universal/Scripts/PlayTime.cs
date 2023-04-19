@@ -72,8 +72,8 @@ public class PlayTime : GameBehaviour
         
         void ShakeCamera()
         {
-            Camera.main.DOShakePosition(tweenTime / 2, 0.4f);
-            _UI.TweenScore();
+            //Camera.main.DOShakePosition(tweenTime / 2, 0.4f);
+            //_UI.TweenScore();
             
         }
 

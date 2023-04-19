@@ -6,11 +6,13 @@ TagManager:
   tags:
   - PowerUp
   - Enemy
+  - ResetPoint
+  - Apple
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ground
   - Water
   - UI
   - 
@@ -42,4 +44,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: New Layer 1
+    uniqueID: 599800881
     locked: 0
